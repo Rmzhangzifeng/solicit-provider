@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.maker.dao.TreesMapper" >
+  <resultMap id="BaseResultMap" type="org.maker.pojo.Trees" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="href" property="href" jdbcType="VARCHAR" />
+    <result column="pid" property="pid" jdbcType="INTEGER" />
+    <result column="target" property="target" jdbcType="VARCHAR" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, text, href, pid, target, icon
+  </sql>
+
+
+  <!-- 查询菜单树 -->
+  <select resultType="org.maker.pojo.Trees" id="queryByPid">
+         select * from enj_tree where pid=#{pid}
+  </select>
+
+
+</mapper>
