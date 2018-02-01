@@ -1,5 +1,6 @@
 package org.maker;
 
+import com.mongodb.Mongo;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -11,6 +12,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.data.mongodb.MongoDbFactory;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
@@ -35,14 +39,10 @@ public class SolicitProviderApplication {
 	//提供SqlSeesion
 	@Bean
 	public SqlSessionFactory sqlSessionFactoryBean() throws Exception {
-
 		SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
 		sqlSessionFactoryBean.setDataSource(dataSource());
-
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-
 		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mybatis/*.xml"));
-
 		return sqlSessionFactoryBean.getObject();
 	}
 
@@ -57,6 +57,16 @@ public class SolicitProviderApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SolicitProviderApplication.class, args);
 		logger.info("============= SpringBoot Start Success =============");
+	}
+
+	@SuppressWarnings("deprecation")
+	public @Bean
+	MongoDbFactory mongoDbFactory() throws Exception {
+		return new SimpleMongoDbFactory(new Mongo("192.168.3.38"), "SolicitArtcollections");
+	}
+
+	public @Bean MongoTemplate mongoTemplate() throws Exception {
+		return new MongoTemplate(mongoDbFactory());
 	}
 
 }

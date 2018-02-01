@@ -3,7 +3,7 @@ package org.maker.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Solicitarticless  implements Serializable {
+public class Solicitarticless implements Serializable {
     private Integer solicitarticlesid;
 
     private String solicitarticlestitle;
@@ -18,10 +18,70 @@ public class Solicitarticless  implements Serializable {
 
     private int greatnumber;
 
+    private int spreadstatus;
+
+    //文章内容
+    private String contentStr;
+    //上传时间Str
+    private String solicitarticlestimeStr;
+    //删除id集合
+    private String idStr;
+    //提交人
+    private String solicusername;
+    //征文话题Str
+    private String gambitnameStr;
     //提交人姓名
     private String soliusername;
     //微话题
     private String soligambitname;
+
+    public String getGambitnameStr() {
+        return gambitnameStr;
+    }
+
+    public void setGambitnameStr(String gambitnameStr) {
+        this.gambitnameStr = gambitnameStr;
+    }
+
+    public String getSolicusername() {
+        return solicusername;
+    }
+
+    public void setSolicusername(String solicusername) {
+        this.solicusername = solicusername;
+    }
+
+    public String getIdStr() {
+        return idStr;
+    }
+
+    public void setIdStr(String idStr) {
+        this.idStr = idStr;
+    }
+
+    public String getSolicitarticlestimeStr() {
+        return solicitarticlestimeStr;
+    }
+
+    public void setSolicitarticlestimeStr(String solicitarticlestimeStr) {
+        this.solicitarticlestimeStr = solicitarticlestimeStr;
+    }
+
+    public String getContentStr() {
+        return contentStr;
+    }
+
+    public void setContentStr(String contentStr) {
+        this.contentStr = contentStr;
+    }
+
+    public int getSpreadstatus() {
+        return spreadstatus;
+    }
+
+    public void setSpreadstatus(int spreadstatus) {
+        this.spreadstatus = spreadstatus;
+    }
 
     public String getSoliusername() {
         return soliusername;
