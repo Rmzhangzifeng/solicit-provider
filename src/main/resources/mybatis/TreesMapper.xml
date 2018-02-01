@@ -18,6 +18,13 @@
   <select resultType="org.maker.pojo.Trees" id="queryByPid">
          select * from enj_tree where pid=#{pid}
   </select>
-
+  <!--  推广查询-->
+<select id="querySpread" resultType="org.maker.pojo.Solicitarticless">
+       SELECT * FROM enj_solicitarticles a where a.spreadstatus =1
+</select>
+  <!--  广告查询-->
+<select id="queryAd" resultType="org.maker.pojo.Advertisement">
+      SELECT * FROM enj_ad WHERE adstataus=2
+</select>
 
 </mapper>
