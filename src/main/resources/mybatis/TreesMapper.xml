@@ -18,6 +18,8 @@
   <select resultType="org.maker.pojo.Trees" id="queryByPid">
          select * from enj_tree where pid=#{pid}
   </select>
-
+<select id="querySpread" resultType="org.maker.pojo.Solicitarticless">
+       SELECT * FROM enj_solicitarticles a where a.spreadstatus =1
+</select>
 
 </mapper>
