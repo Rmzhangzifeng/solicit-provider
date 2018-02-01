@@ -1,6 +1,7 @@
 package org.maker.service.impl;
 
 import org.maker.dao.TreesMapper;
+import org.maker.pojo.Advertisement;
 import org.maker.pojo.Solicitarticless;
 import org.maker.service.Adverservice;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,11 @@ public class TestServiceImpl implements Adverservice {
     @Override
     public List<Solicitarticless> querySpread() {
         return treesMapper.querySpread();
+    }
+
+    @Override
+    public List<Advertisement> queryAd() {
+        return treesMapper.queryAd();
     }
 
 
